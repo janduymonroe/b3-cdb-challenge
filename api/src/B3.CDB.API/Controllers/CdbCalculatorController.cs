@@ -2,8 +2,7 @@ using B3.CDB.API.Model;
 using B3.CDB.API.Service;
 using B3.CDB.API.ViewModel;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Swashbuckle.AspNetCore.Annotations;
+using NSwag.Annotations;
 
 namespace B3.CDB.API.Controllers
 {
@@ -11,6 +10,7 @@ namespace B3.CDB.API.Controllers
     [Route("[controller]")]
     [Produces("application/json")]
     [Consumes("application/json")]
+    [OpenApiTag("CdbCalculator")]
     public class CdbCalculatorController : ControllerBase
     {
         private readonly ICdbCalculatorService _cdbCalculatorService;
@@ -23,15 +23,15 @@ namespace B3.CDB.API.Controllers
         /// <summary>
         /// Calculate CDB
         /// </summary>
-        /// <param name="CDBCalculatorRequest"></param>
+        /// <param name="CdbCalculatorRequest"></param>
         /// <returns>A return amount gross and net</returns>
         /// <remarks>
         /// Sample request:
         ///
         ///     POST /
         ///     {
-        ///        "term": 2,
-        ///        "initialAmounting": "1.000,00",
+        ///        "monthlyTerm": 2,
+        ///        "initialAmounting": "1000.00",
         ///     }
         ///
         /// </remarks>
@@ -44,8 +44,6 @@ namespace B3.CDB.API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<CdbCalculatorResponse> Calculate(CdbCalculatorRequest request)
         {
-            if (request is null) return BadRequest("Request Cannot be null");
-
             var result = _cdbCalculatorService.CdbCalculate(request);
 
             return Ok(result);

@@ -21,7 +21,7 @@ namespace B3.CDB.API.Service
             var amountGrossTotalBeforeTax = AmountTotalCalculate(request);
             var amountIncomeTotalBeforeTax = amountGrossTotalBeforeTax - request.InitialAmount;
 
-            var amountIncomeTax = ApplyTax(request.Term, amountIncomeTotalBeforeTax);
+            var amountIncomeTax = ApplyTax(request.MonthlyTerm, amountIncomeTotalBeforeTax);
 
             return new CdbCalculatorResponse
             (
@@ -34,7 +34,7 @@ namespace B3.CDB.API.Service
         {
             var efectiveTax = FinancialOperation.GetEfectiveTax(cdi, bankIncome);
 
-            var incomeByTerm = FinancialOperation.GetTotalComposedIncomeByTerm(efectiveTax, request.Term);
+            var incomeByTerm = FinancialOperation.GetTotalComposedIncomeByTerm(efectiveTax, request.MonthlyTerm);
 
             var amountTotal = request.InitialAmount * incomeByTerm;
 
