@@ -1,5 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+1
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
@@ -8,7 +11,15 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [
+        FormsModule, 
+        HttpClientTestingModule,
+        RouterTestingModule,
+        ReactiveFormsModule],
+      declarations: [ HomeComponent ],
+      providers: [{
+        provide: FormBuilder, useValue: new FormBuilder()
+      }]
     })
     .compileComponents();
   });

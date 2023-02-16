@@ -25,7 +25,8 @@ describe('CdbCalculateService', () => {
 
   });
 
-  it('should be created', () => {
+  it('should be created service', () => {
+    const service: RequestService = TestBed.inject(RequestService);
     expect(service).toBeTruthy();
   });
 });
