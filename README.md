@@ -17,6 +17,8 @@ Neste projeto, são usadas as seguintes tecnologias:
   * #### BackEnd 
     Projeto se encontra no diretório **api/src/B3.CDB.API**.
     
+    [URL Swagger BackEnd](https://b3cdbapi.greenriver-7b70cac6.eastus.azurecontainerapps.io/swagger/index.html)    
+    
   * #### FrontEnd
     Encontra-se no diretório **web/B3.CDB.Web**
 
@@ -28,3 +30,4 @@ Neste projeto, são usadas as seguintes tecnologias:
   * #### FrontEnd
     **web/B3.CDB.Web**
     Como padrão o front está comunicando com a porta já configurada no back executando no IIS com SSL (44393). 
+
