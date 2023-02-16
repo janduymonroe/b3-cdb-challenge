@@ -2,7 +2,14 @@
   flex: 1 1 auto;
 }
 
+.header {
+  display: flex;
+  padding-top: 10px;
+}
+
 .icon {
   height:auto;
   width:100px;
 }
+
+

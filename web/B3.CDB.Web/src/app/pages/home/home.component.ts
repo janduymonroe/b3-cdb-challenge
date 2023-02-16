@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.calculateForm = this.formBuilder.group({
-      initialAmount: ['', Validators.compose([Validators.required, Validators.min(1)])],
+      initialAmount: ['',Validators.compose([Validators.required, Validators.min(1), Validators.max(1000000000000)])],
       monthlyTerm: ['',Validators.compose([Validators.required, Validators.min(1), Validators.max(60)])],
     });
   }
@@ -42,11 +42,9 @@ export class HomeComponent implements OnInit {
         error: (err) => {
           this.showErrorMessage = true;
           this.showResult = false;
-          this.errorMessage = err.error.errors.MonthlyTerm;
+          this.errorMessage = err.error.errors.MonthlyTerm ?? err.error.errors.InitialAmount;
         },
-        complete() {
-            return;
-        },
+        complete() { }
       });
   }
 }
