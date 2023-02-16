@@ -4,16 +4,13 @@ namespace B3.CDB.API.ViewModel
 {
     public class CdbCalculatorRequest
     {
-        [Required(ErrorMessage = "Term is required")]
-        [Range(1, int.MaxValue, ErrorMessage ="The value cannot be less than 1.")]
-        private int _term;
+        [Required(ErrorMessage = "A quantidade de meses precisa ser informada")]
+        [Range(1, 60, ErrorMessage = "O prazo máximo de emissão de um CDB é de 05 anos (60 meses).")]
+        public int MonthlyTerm { get; set; }
 
-        [Required(ErrorMessage = "Amount value is required")]
-        [Range(1, (double)decimal.MaxValue, ErrorMessage = "Insert a valid amount value.")]
-        private decimal _initialAmount;
+        [Required(ErrorMessage = "O valor precisa ser informado")]
+        [Range(1, 9999999999999.99, ErrorMessage = "Você precisa indicar um capital inicial entre 1 e 9.999.999.999.999,99")]
+        public decimal InitialAmount { get; set; }
 
-
-        public int Term { get => _term; set => _term = value; }
-        public decimal InitialAmount { get => _initialAmount; set => _initialAmount = value; }
     }
 }

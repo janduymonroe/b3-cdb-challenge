@@ -22,7 +22,7 @@ public class CdbCalculatorServiceTest
     [InlineData(28, 1000, 1311.07, 1264.41)]
     public void CdbCalculate_WithCorrectValues_ReturnCorretresponse(int term, decimal initialAmount, decimal gross, decimal net)
     {
-        var requestMock = new CdbCalculatorRequest { Term = term, InitialAmount = initialAmount };
+        var requestMock = new CdbCalculatorRequest { MonthlyTerm = term, InitialAmount = initialAmount };
 
         var cdbCalculatorService = GetCalculatorService();
 
