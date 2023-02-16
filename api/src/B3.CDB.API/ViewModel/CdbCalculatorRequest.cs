@@ -5,7 +5,7 @@ namespace B3.CDB.API.ViewModel
     public class CdbCalculatorRequest
     {
         [Required(ErrorMessage = "A quantidade de meses precisa ser informada")]
-        [Range(1, 60, ErrorMessage = "O prazo máximo de emissão de um CDB é de 05 anos (60 meses).")]
+        [Range(1, 60, ErrorMessage = "O prazo deve estar entre 01 mês e 05 anos (60 meses) sendo este último o prazo máximo de vencimento do CDB.")]
         public int MonthlyTerm { get; set; }
 
         [Required(ErrorMessage = "O valor precisa ser informado")]
